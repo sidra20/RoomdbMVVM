@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:viewBindingIgnore="true">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.sidrakotlin.notepad.viewmodels.AppViewModel" />
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_above="@+id/addNote"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Note"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:fontFamily="sans-serif-black"/>
+        
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleEt"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+
+            android:text="@={viewModel.title}"
+            android:hint="Title"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/descEt"
+            android:hint="Description"
+            android:text="@={viewModel.desc}"
+            android:layout_marginTop="15dp"
+            />
+
+    </LinearLayout>
+
+<Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_margin="15dp"
+    android:backgroundTint="@color/black"
+    android:textSize="15sp"
+    android:onClick="@{()->viewModel.addData()}"
+    android:id="@+id/addNote"
+    android:text="Add"/>
+
+</RelativeLayout>
+
+</layout>
